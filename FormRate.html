@@ -121,6 +121,22 @@
         otherNote.classList.add('hidden'); // Menyembunyikan catatan jika opsi lain dipilih
       }
     });
+
+    // Validasi Form
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const category = document.getElementById('category').value;
+      const comment = document.getElementById('comment').value.trim();
+      const otherNoteText = document.getElementById('otherNoteText').value.trim();
+
+      if (!name || !email || !category || !comment || selectedRating === 0 || 
+          (category === 'Others' && !otherNoteText)) {
+        alert("Please fill out all fields before submitting.");
+      } else {
+        alert("Thank you for your feedback!");
+      }
+    }
   </script>
 
 </body>
