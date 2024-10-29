@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg transition-transform transform hover:scale-105 duration-300">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-4">Feedback Form</h2>
+    <p class="text-gray-500 text-center mb-8">Your opinion matters to us! Please share your experience.</p>
+
+    <!-- Name Input -->
+    <div class="mb-6">
+      <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+      <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Enter your name">
+    </div>
+
+    <!-- Email Input -->
+    <div class="mb-6">
+      <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+      <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Enter your email">
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="mb-6">
+      <label for="category" class="block text-gray-700 font-medium mb-2">Feedback Category</label>
+      <select id="category" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+        <option>Service Quality</option>
+        <option>Product Quality</option>
+        <option>Price</option>
+        <option>Others</option>
+      </select>
+    </div>
+
+    <!-- Rating Stars -->
+    <div class="mb-6">
+      <label class="block text-gray-700 font-medium mb-2">Rate Us</label>
+      <div class="flex justify-center space-x-2">
+        <label>
+          <input type="radio" name="rating" value="1" class="hidden" />
+          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+          </svg>
+        </label>
+        <label>
+          <input type="radio" name="rating" value="2" class="hidden" />
+          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+          </svg>
+        </label>
+        <label>
+          <input type="radio" name="rating" value="3" class="hidden" />
+          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+          </svg>
+        </label>
+        <label>
+          <input type="radio" name="rating" value="4" class="hidden" />
+          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+          </svg>
+        </label>
+        <label>
+          <input type="radio" name="rating" value="5" class="hidden" />
+          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+          </svg>
+        </label>
+      </div>
+    </div>
+
+    <!-- Comment Box -->
+    <div class="mb-6">
+      <label for="comment" class="block text-gray-700 font-medium mb-2">Comments</label>
+      <textarea id="comment" rows="4" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Share your feedback..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition duration-300">
+      Submit Feedback
+    </button>
+  </div>
+
+</body>
+</html>
