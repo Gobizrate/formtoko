@@ -6,6 +6,7 @@
   <title>Feedback Form</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    /* Animasi untuk Bintang */
     .star:hover {
       transform: scale(1.2); /* Membesarkan ukuran */
       color: #facc15; /* Warna kuning lebih terang */
@@ -42,42 +43,26 @@
       </select>
     </div>
 
-    <!-- Rating Stars -->
-    <div class="mb-6">
-      <label class="block text-gray-700 font-medium mb-2">Rate Us</label>
-      <div class="flex justify-center space-x-2">
-        <label>
-          <input type="radio" name="rating" value="1" class="hidden" />
-          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-          </svg>
-        </label>
-        <label>
-          <input type="radio" name="rating" value="2" class="hidden" />
-          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-          </svg>
-        </label>
-        <label>
-          <input type="radio" name="rating" value="3" class="hidden" />
-          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-          </svg>
-        </label>
-        <label>
-          <input type="radio" name="rating" value="4" class="hidden" />
-          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-          </svg>
-        </label>
-        <label>
-          <input type="radio" name="rating" value="5" class="hidden" />
-          <svg class="w-8 h-8 text-gray-300 cursor-pointer hover:text-yellow-400 transition duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-          </svg>
-        </label>
+    <!-- Star Rating Section -->
+    <div class="flex justify-center mb-8" id="starRating">
+        <!-- Interactive Star Icons -->
+        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="1">
+          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+        </svg>
+        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="2">
+          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+        </svg>
+        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="3">
+          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+        </svg>
+        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="4">
+          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+        </svg>
+        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="5">
+          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+        </svg>
       </div>
-    </div>
+  
 
     <!-- Comment Box -->
     <div class="mb-6">
@@ -91,5 +76,32 @@
     </button>
   </div>
 
+  <script>
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value'); // Get rating value from data attribute
+        highlightStars(selectedRating);
+      });
+    });
+
+    function highlightStars(rating) {
+      stars.forEach(star => {
+        const starValue = star.getAttribute('data-value');
+        if (starValue <= rating) {
+          star.classList.add('selected'); // Add selected class to change color
+          star.classList.remove('text-gray-300'); // Remove gray color
+          star.classList.add('text-yellow-400'); // Set yellow color
+        } else {
+          star.classList.remove('selected'); // Remove selected class if unselected
+          star.classList.add('text-gray-300'); // Reset to gray color
+          star.classList.remove('text-yellow-400'); // Remove yellow color
+        }
+      });
+    }
+  </script>
+  
 </body>
 </html>
