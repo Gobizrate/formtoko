@@ -43,6 +43,12 @@
       </select>
     </div>
 
+    <!-- Additional Note for 'Others' Option -->
+    <div id="otherNote" class="mb-6 hidden">
+        <label for="otherNoteText" class="block text-gray-700 font-medium mb-2">Please specify</label>
+        <textarea id="otherNoteText" rows="3" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Describe your feedback category"></textarea>
+      </div>
+
     <!-- Star Rating Section -->
     <div class="flex justify-center mb-8" id="starRating">
         <!-- Interactive Star Icons -->
@@ -78,15 +84,20 @@
 
   <script>
     const stars = document.querySelectorAll('.star');
+    const categorySelect = document.getElementById('category');
+    const otherNote = document.getElementById('otherNote');
+  
     let selectedRating = 0;
-
+  
+    // Menambahkan event listener untuk rating bintang
     stars.forEach(star => {
       star.addEventListener('click', () => {
         selectedRating = star.getAttribute('data-value'); // Get rating value from data attribute
         highlightStars(selectedRating);
       });
     });
-
+  
+    // Fungsi untuk highlight bintang
     function highlightStars(rating) {
       stars.forEach(star => {
         const starValue = star.getAttribute('data-value');
@@ -101,7 +112,16 @@
         }
       });
     }
-  </script>
   
+    // Menambahkan event listener untuk perubahan di kategori dropdown
+    categorySelect.addEventListener('change', () => {
+      if (categorySelect.value === 'Others') {
+        otherNote.classList.remove('hidden'); // Menampilkan catatan jika opsi "Others" dipilih
+      } else {
+        otherNote.classList.add('hidden'); // Menyembunyikan catatan jika opsi lain dipilih
+      }
+    });
+  </script>
+
 </body>
 </html>
