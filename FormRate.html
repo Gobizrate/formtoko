@@ -83,19 +83,19 @@
     <div class="mb-6">
         <label for="photo" class="block text-gray-700 font-medium mb-2">Upload Photo (optional)</label>
         <!-- Label sebagai tombol unggahan -->
-        <label for="photo" class="cursor-pointer inline-block px-3 py-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold rounded-md shadow-md hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition duration-300 text-sm">
+        <label for="photo" class="cursor-pointer inline-block px-3 py-1.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold rounded-md shadow-md hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition duration-300 text-sm">
           Choose File
         </label>
         <!-- Menampilkan nama file yang dipilih -->
         <span id="fileName" class="ml-4 text-gray-500">No file chosen</span>
         <input type="file" id="photo" accept="image/*">
-      </div>
+    </div>
 
     <!-- Submit Button -->
-    <button class="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-600 transform hover:scale-105 transition duration-300">
-      Submit Feedback
-    </button>
-  </div>
+    <button onclick="validateForm()" class="w-full py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold rounded-md shadow-md hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition duration-300 text-sm">
+        Submit Feedback
+      </button>
+    </div>
 
   <script>
     const photoInput = document.getElementById('photo');
