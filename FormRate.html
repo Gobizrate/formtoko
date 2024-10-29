@@ -30,6 +30,20 @@
       transform: scale(1.05);
       box-shadow: 0px 6px 20px rgba(59, 130, 246, 0.6);
     }
+    /* Border untuk tombol unggahan */
+    .upload-area {
+      border: 2px dashed #3b82f6;
+      border-radius: 0.375rem;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #f9fafb; /* Warna latar belakang */
+    }
+    .upload-area:hover {
+      border-color: #2563eb;
+      background-color: #e0f2fe; /* Warna saat hover */
+    }
   </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -97,12 +111,9 @@
     <!-- Photo Upload -->
     <div class="mb-6">
         <label for="photo" class="block text-gray-700 font-medium mb-2">Upload Photo (optional)</label>
-        <!-- Label sebagai tombol unggahan -->
-        <label for="photo" class="cursor-pointer inline-block px-3 py-1.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold rounded-md shadow-md hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition duration-300 text-sm">
-          Choose File
-        </label>
-        <!-- Menampilkan nama file yang dipilih -->
-        <span id="fileName" class="ml-4 text-gray-500">No file chosen</span>
+        <div class="upload-area" onclick="document.getElementById('photo').click();">
+          <span id="fileName" class="text-gray-500">Choose a file...</span>
+        </div>
         <input type="file" id="photo" accept="image/*">
     </div>
 
