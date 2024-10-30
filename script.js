@@ -6,21 +6,20 @@ const otherNote = document.getElementById('otherNote');
 const emojiContainer = document.getElementById('emoji');
 const emojis = ["😢", "😕", "😐", "😊", "😁"]; // Emotikon untuk setiap rating 1-5
 
-let selectedRating = 0;
-
-// Mengubah Emotikon Berdasarkan Rating
+// Fungsi untuk mengubah emotikon berdasarkan rating
 function updateEmoji(rating) {
-  emojiContainer.textContent = emojis[rating - 1]; // Set emotikon sesuai dengan rating
+  emojiContainer.textContent = emojis[rating - 1]; // Set emotikon sesuai rating
 }
 
-// Modifikasi event listener untuk rating bintang
+// Event listener untuk rating bintang
 stars.forEach(star => {
   star.addEventListener('click', () => {
     selectedRating = star.getAttribute('data-value'); // Dapatkan nilai rating
     highlightStars(selectedRating); // Perbarui warna bintang
-    updateEmoji(selectedRating); // Tampilkan emotikon berdasarkan rating
+    updateEmoji(selectedRating); // Tampilkan emotikon sesuai rating
   });
 });
+
 
 
 stars.forEach(star => {
