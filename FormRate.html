@@ -5,46 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feedback Form</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Animasi untuk Bintang */
-    .star:hover {
-      transform: scale(1.2); /* Membesarkan ukuran */
-      color: #facc15; /* Warna kuning lebih terang */
-      transition: transform 0.2s, color 0.2s;
-    }
-    #photo {
-        display: none;
-    }
-    /* Tambahkan efek glow di tombol */
-    .glow-button {
-      background-image: linear-gradient(90deg, #3b82f6, #2563eb);
-      color: white;
-      font-weight: bold;
-      padding: 0.5rem 1.25rem;
-      border-radius: 0.375rem;
-      box-shadow: 0px 4px 15px rgba(59, 130, 246, 0.4);
-      transition: all 0.3s ease;
-    }
-    .glow-button:hover {
-      background-image: linear-gradient(90deg, #2563eb, #1e40af);
-      transform: scale(1.05);
-      box-shadow: 0px 6px 20px rgba(59, 130, 246, 0.6);
-    }
-    /* Border untuk tombol unggahan */
-    .upload-area {
-      border: 2px dashed #3b82f6;
-      border-radius: 0.375rem;
-      padding: 1rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      background-color: #f9fafb; /* Warna latar belakang */
-    }
-    .upload-area:hover {
-      border-color: #2563eb;
-      background-color: #e0f2fe; /* Warna saat hover */
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
@@ -52,19 +13,16 @@
     <h2 class="text-3xl font-bold text-gray-800 text-center mb-4">Feedback Form</h2>
     <p class="text-gray-500 text-center mb-8">Your opinion matters to us! Please share your experience.</p>
 
-    <!-- Name Input -->
     <div class="mb-6">
       <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
       <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Enter your name">
     </div>
 
-    <!-- Email Input -->
     <div class="mb-6">
       <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
       <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Enter your email">
     </div>
 
-    <!-- Category Dropdown -->
     <div class="mb-6">
       <label for="category" class="block text-gray-700 font-medium mb-2">Feedback Category</label>
       <select id="category" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
@@ -75,117 +33,48 @@
       </select>
     </div>
 
-    <!-- Additional Note for 'Others' Option -->
     <div id="otherNote" class="mb-6 hidden">
-        <label for="otherNoteText" class="block text-gray-700 font-medium mb-2">Please specify</label>
-        <textarea id="otherNoteText" rows="3" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Describe your feedback category"></textarea>
-      </div>
+      <label for="otherNoteText" class="block text-gray-700 font-medium mb-2">Please specify</label>
+      <textarea id="otherNoteText" rows="3" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Describe your feedback category"></textarea>
+    </div>
 
-    <!-- Star Rating Section -->
     <div class="flex justify-center mb-8" id="starRating">
-        <!-- Interactive Star Icons -->
-        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="1">
-          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-        </svg>
-        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="2">
-          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-        </svg>
-        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="3">
-          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-        </svg>
-        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="4">
-          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-        </svg>
-        <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="5">
-          <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
-        </svg>
-      </div>
-  
+      <!-- Interactive Star Icons -->
+      <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="1">
+        <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+      </svg>
+      <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="2">
+        <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+      </svg>
+      <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="3">
+        <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+      </svg>
+      <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="4">
+        <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+      </svg>
+      <svg class="star w-10 h-10 text-gray-300 hover:text-yellow-400" fill="currentColor" viewBox="0 0 20 20" data-value="5">
+        <path d="M10 15l5.09 3.26-1.62-6.51L18 7.76l-6.55-.52L10 1 8.55 7.24 2 7.76l4.53 4.99L4.91 18z" />
+      </svg>
+    </div>
 
-    <!-- Comment Box -->
     <div class="mb-6">
       <label for="comment" class="block text-gray-700 font-medium mb-2">Comments</label>
       <textarea id="comment" rows="4" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Share your feedback..."></textarea>
     </div>
 
-    <!-- Photo Upload -->
     <div class="mb-6">
-        <label for="photo" class="block text-gray-700 font-medium mb-2">Upload Photo (optional)</label>
-        <div class="upload-area" onclick="document.getElementById('photo').click();">
-          <span id="fileName" class="text-gray-500">Choose a file...</span>
-        </div>
-        <input type="file" id="photo" accept="image/*">
+      <label for="photo" class="block text-gray-700 font-medium mb-2">Upload Photo (optional)</label>
+      <div class="upload-area" onclick="document.getElementById('photo').click();">
+        <span id="fileName" class="text-gray-500">Choose a file...</span>
+      </div>
+      <input type="file" id="photo" accept="image/*" style="display: none;">
     </div>
 
-    <!-- Submit Button -->
     <button onclick="validateForm()" class="w-full py-2 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold rounded-md shadow-md hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition duration-300 text-sm">
-        Submit Feedback
-      </button>
-    </div>
+      Submit Feedback
+    </button>
+  </div>
 
-  <script>
-    const photoInput = document.getElementById('photo');
-    const fileNameSpan = document.getElementById('fileName');
-    const stars = document.querySelectorAll('.star');
-    const categorySelect = document.getElementById('category');
-    const otherNote = document.getElementById('otherNote');
-  
-    let selectedRating = 0;
-  
-    // Menambahkan event listener untuk rating bintang
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        selectedRating = star.getAttribute('data-value'); // Get rating value from data attribute
-        highlightStars(selectedRating);
-      });
-    });
-  
-    // Fungsi untuk highlight bintang
-    function highlightStars(rating) {
-      stars.forEach(star => {
-        const starValue = star.getAttribute('data-value');
-        if (starValue <= rating) {
-          star.classList.add('selected'); // Add selected class to change color
-          star.classList.remove('text-gray-300'); // Remove gray color
-          star.classList.add('text-yellow-400'); // Set yellow color
-        } else {
-          star.classList.remove('selected'); // Remove selected class if unselected
-          star.classList.add('text-gray-300'); // Reset to gray color
-          star.classList.remove('text-yellow-400'); // Remove yellow color
-        }
-      });
-    }
-  
-    // Menambahkan event listener untuk perubahan di kategori dropdown
-    categorySelect.addEventListener('change', () => {
-      if (categorySelect.value === 'Others') {
-        otherNote.classList.remove('hidden'); // Menampilkan catatan jika opsi "Others" dipilih
-      } else {
-        otherNote.classList.add('hidden'); // Menyembunyikan catatan jika opsi lain dipilih
-      }
-    });
-
-    // Menampilkan nama file yang dipilih
-    photoInput.addEventListener('change', () => {
-      fileNameSpan.textContent = photoInput.files.length > 0 ? photoInput.files[0].name : 'No file chosen';
-    });
-
-    // Validasi Form
-    function validateForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const category = document.getElementById('category').value;
-      const comment = document.getElementById('comment').value.trim();
-      const otherNoteText = document.getElementById('otherNoteText').value.trim();
-
-      if (!name || !email || !category || !comment || selectedRating === 0 || 
-          (category === 'Others' && !otherNoteText)) {
-        alert("Please fill out all fields before submitting.");
-      } else {
-        alert("Thank you for your feedback!");
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
