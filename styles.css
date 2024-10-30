@@ -1,3 +1,36 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Mengubah gaya dan animasi pada judul */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #0288d1;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+/* Efek bounce pada judul */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Efek hover untuk menambah skala */
+h2:hover {
+  transform: scale(1.1);
+  color: #0277bd;
+  text-shadow: 0px 4px 6px rgba(2, 136, 209, 0.4);
+}
+
+
 /* Mengubah warna latar belakang form */
 body {
   background-color: #e0f7fa;
