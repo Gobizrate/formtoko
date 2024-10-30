@@ -3,8 +3,25 @@ const fileNameSpan = document.getElementById('fileName');
 const stars = document.querySelectorAll('.star');
 const categorySelect = document.getElementById('category');
 const otherNote = document.getElementById('otherNote');
+const emojiContainer = document.getElementById('emoji');
+const emojis = ["😢", "😕", "😐", "😊", "😁"]; // Emotikon untuk setiap rating 1-5
 
 let selectedRating = 0;
+
+// Mengubah Emotikon Berdasarkan Rating
+function updateEmoji(rating) {
+  emojiContainer.textContent = emojis[rating - 1]; // Set emotikon sesuai dengan rating
+}
+
+// Modifikasi event listener untuk rating bintang
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    selectedRating = star.getAttribute('data-value'); // Dapatkan nilai rating
+    highlightStars(selectedRating); // Perbarui warna bintang
+    updateEmoji(selectedRating); // Tampilkan emotikon berdasarkan rating
+  });
+});
+
 
 stars.forEach(star => {
   star.addEventListener('click', () => {
