@@ -78,10 +78,10 @@ function clearForm() {
   document.getElementById('category').value = '';
   document.getElementById('comment').value = '';
   document.getElementById('otherNoteText').value = '';
-  otherNote.classList.add('hidden'); // Sembunyikan kolom 'Other' jika ada
-  photoInput.value = ''; // Reset file input
-  fileNameSpan.textContent = 'Choose a file...'; // Reset text untuk file
-  emojiContainer.textContent = ''; // Kosongkan emoji
+  otherNote.classList.add('hidden'); 
+  photoInput.value = ''; 
+  fileNameSpan.textContent = 'Choose a file...'; 
+  emojiContainer.textContent = ''; 
 
   // Reset rating
   selectedRating = 0;
