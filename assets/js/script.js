@@ -54,6 +54,7 @@ photoInput.addEventListener('change', () => {
   fileNameSpan.textContent = photoInput.files.length > 0 ? photoInput.files[0].name : 'No file chosen';
 });
 
+// Fungsi untuk memvalidasi dan mengosongkan form
 function validateForm() {
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -66,7 +67,27 @@ function validateForm() {
     alert("Please fill out all fields before submitting.");
   } else {
     alert("Thank you for your feedback!");
+    clearForm(); // Panggil fungsi clearForm setelah berhasil submit
   }
 }
 
+// Fungsi untuk mengosongkan semua input form
+function clearForm() {
+  document.getElementById('name').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('category').value = '';
+  document.getElementById('comment').value = '';
+  document.getElementById('otherNoteText').value = '';
+  otherNote.classList.add('hidden'); // Sembunyikan kolom 'Other' jika ada
+  photoInput.value = ''; // Reset file input
+  fileNameSpan.textContent = 'Choose a file...'; // Reset text untuk file
+  emojiContainer.textContent = ''; // Kosongkan emoji
+
+  // Reset rating
+  selectedRating = 0;
+  stars.forEach(star => {
+    star.classList.remove('selected', 'text-yellow-400');
+    star.classList.add('text-gray-300');
+  });
+}
 
