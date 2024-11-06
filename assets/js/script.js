@@ -15,12 +15,10 @@ function updateEmoji(rating) {
 stars.forEach(star => {
   star.addEventListener('click', () => {
     selectedRating = star.getAttribute('data-value'); // Dapatkan nilai rating
-    highlightStars(selectedRating); // Perbarui warna bintang
+    highlightStars(selectedRating); // Highlight bintang sesuai rating
     updateEmoji(selectedRating); // Tampilkan emotikon sesuai rating
   });
 });
-
-
 
 stars.forEach(star => {
   star.addEventListener('click', () => {
