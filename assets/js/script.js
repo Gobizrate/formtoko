@@ -67,7 +67,7 @@ function validateForm() {
     alert("Please fill out all fields before submitting.");
   } else {
     alert("Thank you for your feedback!");
-    clearForm(); // Panggil fungsi clearForm setelah berhasil submit
+    clearForm(); 
   }
 }
 
